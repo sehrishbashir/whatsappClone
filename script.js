@@ -16,28 +16,38 @@
 
 
 
-let handleSucess = function(response) {
+let handleSucess = function (response) {
     console.log("SUCESS!!");
     console.log(response);
     for (let i = 0; i < response.data.length; i++) {
         let messages = response.data[i];
         document.querySelector("ul").innerHTML +=
-            `<li>
-            <h3>${messages.name}</h3>
-            <p>${messages.number}</p>
-            <p>${messages.firstLine}</p>
-            <h3>${messages.time}</h3>
-            <img src = ${messages.profilePic}>
+        `<li>
+        <div id="info">
+            <div id="img">
+                <img src = ${messages.profilePic} id="flower">
+            </div>
+            <div id="details">
+                <h3>${messages.name}</h3>
+                <p>${messages.number}</p>
+                <p>${messages.firstLine}</p>
+              </div>  
+            </div>
+            <div id="time">
+            <button>${messages.numbUnread}</button>
+            <p>${messages.time}</p>
+            </div>
         </li>`
+        
     }
 }
 
-let handleError = function(error) {
+let handleError = function (error) {
     console.log("ERROR!!!!!!! :'-[ ");
     console.log(error);
 }
 
-let finishUp = function() {
+let finishUp = function () {
     console.log("THE END!");
 }
 
